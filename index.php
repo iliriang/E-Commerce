@@ -284,7 +284,7 @@ include 'resources\dbResources.php';
               class="newsletter__input"
             />
 
-            <a href="#" class="button">Subscribe</a>
+            <a href="#" class="button">Subscribe1</a>
           </form>
         </div>
       </section>
