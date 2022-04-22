@@ -68,7 +68,7 @@ include 'resources\dbResources.php';
    <p class="text-empty"> Your shopping cart is currently empty. </p>
   </div>
   <div class="cart-body">
-    <img class="product-img" width="100" src="">
+    <img class="product-img" width="100" >
      <div class="product-name"></div>
      <div class="product-price"></div>
   </div>

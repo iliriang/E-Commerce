@@ -856,3 +856,23 @@ img {
   .text-content.hidden{
     display: none;
   }
+
+
+  .product-img{
+    height: 100%;
+    margin: auto;
+    width: 65%;
+    padding: 3px;
+}
+
+  .product-name{
+    padding: 2px;
+    text-align: center;
+  }
+
+  .product-price{
+    padding: 2px;
+    text-align: center;
+  }
+
+  
