@@ -43,16 +43,41 @@ include 'resources\dbResources.php';
               <a href="#new" class="nav__link">New</a>
             </li>
             <li class="nav__item">
-              <a href="./shop.php" class="nav__link">Shop</a>
+              <a href="./shop.php" class="nav__link" >Shop</a>
             </li>
           </ul>
         </div>
-        <div class="nav__shop">
+        <div class="nav__shop" onclick="addClass()">
           <i class="bx bxs-shopping-bag"></i>
         </div>
       </nav>
     </header>
 
+    <div class="overlay"></div>
+    <div class="cart">
+    <div class="cart-header">
+        <h3 class=”Heading”>Shopping Cart</h3>
+        <div class='close-ikon' onclick="removeClass()">
+          <i class="fas fa-times"></i> </div>
+        </div>
+        
+ <div class="text-content ">
+    <div id="content-ikon">
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+   <p class="text-empty"> Your shopping cart is currently empty. </p>
+  </div>
+  <div class="cart-body">
+    <img class="product-img" width="100" src="">
+     <div class="product-name"></div>
+     <div class="product-price"></div>
+  </div>
+    <div class='cart-footer'>
+      <h3 class='Heading'>Total</h3>
+      <p class="price">Price</p>
+
+    </div>
+    </div>
     <main class="l-main">
       <!--===== HOME =====-->
       <section class="home" id="home">
@@ -80,24 +105,23 @@ include 'resources\dbResources.php';
       <section class="featured section" id="featured">
         <h2 class="section-title"><!--FEATURED--><?php echo $featured_data[0]['title'] ?> </h2>
         <div class="featured__container bd-grid">
-          <article class="sneaker">
+          <article class="sneaker" id="product-1">
             <div class="sneaker__sale">Sale</div>
-            <img src="assets/img/featured1.png" alt="" class="sneaker__img" />
-            <span class="sneaker__name"><!--Nike Jordan--><?php echo $featured_data[0]['product_name'] ?></span>
-            <span class="sneaker__preci">$<!--149.99--><?php echo $featured_data[0]['product_price'] ?></span>
-            <a href="" class="button-light"
+            <img src="assets/img/featured1.png" alt="" class="sneaker__img" id='foto' />
+            <span class="sneaker__name"><?php echo $featured_data[0]['product_name'] ?></span>
+            <span class="sneaker__preci"><?php echo $featured_data[0]['product_price'] ?></span>
+            <a href="" class="button-light" onclick='addToCart(event, 0)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
 
-          <article class="sneaker">
+          <article class="sneaker" id="product-2">
             <div class="sneaker__sale">Sale</div>
             <img src="assets/img/featured2.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">
-              <!-- Nike Free RN  -->
-              <?php echo $featured_data[0]['product_name'] ?></span>
-            <span class="sneaker__preci">$<?php echo $featured_data[0]['product_price'] ?></span>
-            <a href="" class="button-light"
+              <?php echo $featured_data[1]['product_name'] ?></span>
+            <span class="sneaker__preci">$<?php echo $featured_data[1]['product_price'] ?></span>
+            <a href="" class="button-light" onclick='addToCart(event, 1)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
@@ -106,11 +130,10 @@ include 'resources\dbResources.php';
             <div class="sneaker__sale">Sale</div>
             <img src="assets/img/featured3.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">
-              <!-- Nike Free Rn -->
-               <?php echo $featured_data[0]['product_name'] ?>
+               <?php echo $featured_data[2]['product_name'] ?>
             </span>
-            <span class="sneaker__preci">$<?php echo $featured_data[0]['product_price'] ?></span>
-            <a href="" class="button-light"
+            <span class="sneaker__preci">$<?php echo $featured_data[2]['product_price'] ?></span>
+            <a href="" class="button-light"  onclick='addToCart(event, 2)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
@@ -131,7 +154,7 @@ include 'resources\dbResources.php';
                 <?php echo $brand_data[0]['description'] ?>
 
               </p>
-              <a href="#women" class="button-light"
+              <a href="#women" class="button-light"  onclick='addToCart(event)'
                 >Buy now<i class="bx bxs-right-arrow-alt button-icon"></i>
               </a>
             </div>
@@ -152,7 +175,7 @@ include 'resources\dbResources.php';
                 <!-- New collection 2021 -->
                               <?php echo $brand_data[0]['description'] ?>
 </p>
-              <a href="#new" class="button-light"
+              <a href="#new" class="button-light"  onclick='addToCart(event)'
                 >Buy now<i class="bx bxs-right-arrow-alt button-icon"></i>
               </a>
             </div>
@@ -181,7 +204,7 @@ include 'resources\dbResources.php';
             <span class="sneaker__preci">$ <?php  echo $women_data[2]['product_price'] ?>
 
             </span>
-            <a href="" class="button-light"
+            <a href="" class="button-light" onclick='addToCart(event)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
@@ -189,7 +212,7 @@ include 'resources\dbResources.php';
             <img src="assets/img/women2.png" alt="" class="sneaker__img" />
             <span class="sneaker__name"><?php echo $women_data[2]['product_title'] ?></span>
             <span class="sneaker__preci">$ <?php  echo $women_data[2]['product_price'] ?></span>
-            <a href="" class="button-light"
+            <a href="" class="button-light"  onclick='addToCart(event)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
@@ -197,7 +220,7 @@ include 'resources\dbResources.php';
             <img src="assets/img/women3.png" alt="" class="sneaker__img" />
             <span class="sneaker__name"><?php echo $women_data[1]['product_title'] ?></span>
             <span class="sneaker__preci">$<?php  echo $women_data[1]['product_price'] ?></span>
-            <a href="" class="button-light"
+            <a href="" class="button-light"  onclick='addToCart(event)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
@@ -205,7 +228,7 @@ include 'resources\dbResources.php';
             <img src="assets/img/women4.png" alt="" class="sneaker__img" />
             <span class="sneaker__name"><?php echo $women_data[0]['product_title'] ?></span>
             <span class="sneaker__preci">$<?php  echo $women_data[0]['product_price'] ?></span>
-            <a href="" class="button-light"
+            <a href="" class="button-light"  onclick='addToCart(event)'
               >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
             ></a>
           </article>
@@ -238,27 +261,27 @@ include 'resources\dbResources.php';
             <div class="new__sneaker-card">
               <img src="assets/img/new2.png" alt="" class="new__sneaker-img" />
               <div class="new__sneaker-overlay">
-                <a href="#" class="button">Add to Cart</a>
+                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
               </div>
             </div>
             <div class="new__sneaker-card">
               <img src="assets/img/new3.png" alt="" class="new__sneaker-img" />
               <div class="new__sneaker-overlay">
-                <a href="#" class="button">Add to Cart</a>
+                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
               </div>
             </div>
 
             <div class="new__sneaker-card">
               <img src="assets/img/new4.png" alt="" class="new__sneaker-img" />
               <div class="new__sneaker-overlay">
-                <a href="#" class="button">Add to Cart</a>
+                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
               </div>
             </div>
 
             <div class="new__sneaker-card">
               <img src="assets/img/new5.png" alt="" class="new__sneaker-img" />
               <div class="new__sneaker-overlay">
-                <a href="#" class="button">Add to Cart</a>
+                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
               </div>
             </div>
           </div>

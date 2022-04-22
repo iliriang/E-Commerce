@@ -60,3 +60,73 @@ function changeSize() {
 }
 
 sizes.forEach((size) => size.addEventListener("click", changeSize));
+
+
+
+
+// nav.addEventListener('click', function handleClick(event) {
+//   event.target.classList.add('active');
+// });
+
+
+let div= document.getElementsByClassName('cart')[0];
+let overlay = document.getElementsByClassName('overlay')[0];
+
+function addClass(){
+  div.classList.add('active');
+  overlay.classList.add('cart-open');
+}
+
+function removeClass(){
+  div.classList.remove('active');
+  overlay.classList.remove('cart-open');
+}
+
+
+
+
+let hid=document.getElementsByClassName('text-content');
+
+
+let product=document.getElementById('product-1');
+
+var names = [];
+localStorage.setItem("names", JSON.stringify(names));
+
+
+
+
+
+function addToCart(e, i){
+  e.preventDefault();
+
+  let product1 = document.getElementsByClassName("sneaker__name")[i];  
+  hid[0].className = "text-content hidden";
+  localStorage.setItem('productName', product1.innerHTML);
+
+  let cmimi1= document.getElementsByClassName("sneaker__preci")[i];
+  localStorage.setItem('productPrice', cmimi1.innerHTML);
+
+  let photo1= document.getElementsByClassName("sneaker__img")[i]
+  localStorage.setItem('productPhoto', photo1.getAttribute('src'));
+
+  addClass();
+  getProducts();
+
+}
+
+function getProducts(){
+  let getProduct1 = localStorage.getItem('productName');
+  let product1 = document.getElementsByClassName('product-name')[0];
+  product1.innerHTML =  getProduct1
+
+
+  let getCmimi1=localStorage.getItem('productPrice');
+  let cmimi1 = document.getElementsByClassName('product-price')[0];
+  cmimi1.innerHTML =  getCmimi1
+   
+  let getPhoto1=localStorage.getItem('productPhoto');
+  let photo1 = document.getElementsByClassName('product-img')[0];
+  photo1.src = getPhoto1
+}
+
