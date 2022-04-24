@@ -38,6 +38,9 @@
             <li class="nav__item">
               <a href="#shop" class="nav__link active">Shop</a>
             </li>
+             <li class="nav__item">
+              <a href="./login.php" class="nav__link" >Login</a>
+            </li>
           </ul>
         </div>
         <div class="nav__shop">

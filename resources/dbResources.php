@@ -57,4 +57,11 @@ $women_data = fetch_data(
     "women_data",
     ['id','title' , 'product_title','product_price']
 );
+$users = fetch_data(
+    $db,
+    "users",
+    ['id','username' , 'email','password', 'confirm' , 'role']
+);
+
+
 ?>

@@ -15,6 +15,7 @@ if ($db->connect_error) {
 
 //  FUNCTIONS
 
+
 function fetch_data($db, string $tableName, array $columns)
 {
     if (empty($db)) {
@@ -39,6 +40,43 @@ function fetch_data($db, string $tableName, array $columns)
         }
     }
     return $msg;
+    
 }
+function create_data($db, string $tableName, array $columnsArray, array $valuesArray)
+{
+    $msg = "Success";
+
+    if (empty($db)) {
+        $msg = "Database connection error";
+    } elseif (empty($columnsArray) || !is_array($columnsArray)) {
+        $msg = "columns Name must be defined in an indexed array";
+    } elseif (empty($tableName)) {
+        $msg = "Table Name is empty";
+    }elseif (empty($valuesArray)) {
+        $msg = "Values are empty";
+    } else {
+        $columns = implode(", ", $columnsArray);
+        $values = implode("', '", $valuesArray);
+        $query = "INSERT INTO " .  $tableName .  " (" . $columns . ") " . "VALUES" .  " ('" . $values . "') " . " ;";
+
+        if (!$db->query($query)) {
+            $msg = mysqli_error($db);
+        }
+    }
+
+    if($msg == "Success"){
+        if($tableName == 'users'){
+            session_start();
+
+            $_SESSION['logged_in_user'] = 'simple';
+        }
+
+        header("Location: http://localhost/E-Commerce/login.php");
+    }
+
+    return $msg;
+}
+
+    
 
 ?>

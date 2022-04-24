@@ -21,8 +21,9 @@ include 'resources\dbResources.php';
     <title>OmiOnline - Ecommerce</title>
   </head>
   <body>
-    <!--Header-->
-    <header class="l-header" id="header">
+
+    <!-- Header -->
+     <header class="l-header" id="header">
       <nav class="nav bd-grid">
         <div class="nav__toggle" id="nav-toggle">
           <i class="bx bxs-grid"></i>
@@ -44,6 +45,9 @@ include 'resources\dbResources.php';
             </li>
             <li class="nav__item">
               <a href="./shop.php" class="nav__link" >Shop</a>
+            </li>
+            <li class="nav__item">
+              <a href="./login.php" class="nav__link" >Login</a>
             </li>
           </ul>
         </div>
