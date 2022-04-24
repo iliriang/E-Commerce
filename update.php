@@ -1,5 +1,12 @@
 <?php 
 include "config.php";
+   $result = null;
+    $sql = "";
+    $firstname = "";
+$lastname = "";
+$email = "" ;
+$password = "" ;
+
 if(isset($_POST['update'])){
     $firstname = $_POST['firstname'];
     $user_id = $_POST['id'];
@@ -7,7 +14,7 @@ if(isset($_POST['update'])){
      $email = $_POST['email'];
      $password = $_POST['password'];
 
-    $sql = "UPDATE `userss` SET 'firstname' = '$firstname' , 'lastname' = '$lastname', 'email' = '$email','password' = '$password' WHERE 'id' = '$user_id'";
+    $sql = "UPDATE `userss` SET 'firstname' = '.$firstname.' , 'lastname' = '.$lastname.', 'email' = '.$email.','password' = '.$password.' WHERE 'id' = '.$user_id.'";
     $result = $conn->query($sql);
     if($result == TRUE) {
         echo "Record Updated Succesfully";
@@ -22,7 +29,7 @@ if(isset($_POST['update'])){
         $user_id = $_GET['id'];
         $sql = "SELECT *FROM 'userss' WHERE 'id' = '$user_id'";
         $result = $conn->query($sql);
-        if($result->num_rows > 0){
+        if(num_rows($run)>0){
             while($row = $result->fetch_assoc()) {
                 $firstname = $row['firstname'];
                 $lastname = $row['lastname'];
@@ -30,33 +37,39 @@ if(isset($_POST['update'])){
                 $password = $row['password'];
                 $id = $row['id'];
 
-
+?>
             }
-            ?>
-            <!DOCTYPE html>
-            <html>
-                <head>
-            <title>View Page</title>
-             <head>
+            
+           <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="assets/style1.css">
+
+	<title>UPDATE - OmiO</title>
+</head>
+<body>
+    <title>UPDATE</title>
             <h2>User Update Form</h2>
-            <form action="" method="POST">
-
-
- <form action="" method="post">
+            <form action="update.php" method="POST">
 <fieldset>
 <legend>Personal information:</legend>
 First name: <br>
-<input type="text" name="firstname" value="<?php echo $first_name; ?>">
-<input type="hidden" name="user_id" value="<?php echo $id; ?>">
+<input type="text" name="firstname" value="<?php echo $_POST = 'firstname'; ?>">
+<input type="hidden" name="user_id" value="<?php echo $_POST = 'id'; ?>">
 <br>
 Last name:<br>
-<input type="text" name="lastname" value="<?php echo $lastname; ?>">
+<input type="text" name="lastname" value="<?php echo $_POST = 'lastname'; ?>">
 <br>
 Email:<br>
-<input type="email" name="email" value="<?php echo $email; ?>">
+<input type="email" name="email" value="<?php echo $_POST = 'email'; ?>">
 <br>
 Password: <br>
-<input type="password" name="password" value="<?php echo $password; ?>">
+<input type="password" name="password" value="<?php echo $_POST = 'password'; ?>">
 <br>
 <input type="submit" value="Update" name="update">
         </fieldset>
@@ -68,10 +81,8 @@ Password: <br>
 
         <?php 
 
-        } else {
-            header('Location: view.php');
-        }
-    }
-
-
- 
+        // } else {
+        //     header('Location: view.php');
+         }
+        } }
+    
