@@ -51,7 +51,7 @@ $conn->close();
 <body>
 <?php include 'header.php';?>
 	<div class="container">
-		<form action="create.php" method="POST" class="login-email">
+		<form action="register.php" method="POST" class="login-email">
             <input type="hidden" name="data_submitted" value="true" >
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
