@@ -14,7 +14,7 @@
 
     
     if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -55,16 +55,16 @@ $conn->close();
             <input type="hidden" name="data_submitted" value="true" >
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
-				<input type="text" placeholder="firstname" name="firstname" value="<?php echo $_POST ='firstname'; ?>" required>
+				<input type="text" placeholder="firstname" name="firstname" required>
 			</div>
             	<div class="input-group">
-				<input type="text" placeholder="lastname" name="lastname" value="<?php echo $_POST ='lastname'; ?>" required>
+				<input type="text" placeholder="lastname" name="lastname"  required>
 			</div>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $_POST = 'email'; ?>" required>
+				<input type="email" placeholder="Email" name="email"  required>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST = 'password'; ?>" required>
+				<input type="password" placeholder="Password" name="password"  required>
             </div>
               
 			<div class="input-group">
