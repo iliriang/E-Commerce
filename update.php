@@ -1,44 +1,42 @@
 <?php 
 include "config.php";
-   $result = null;
+    $result = null;
     $sql = "";
     $firstname = "";
-$lastname = "";
-$email = "" ;
-$password = "" ;
-
-if(isset($_POST['update'])){
-    $firstname = $_POST['firstname'];
-    $user_id = $_POST['id'];
+    $lastname = "";
+    $email = "" ;
+    $password = "" ;
+    
+    if(isset($_POST['update'])){
+        $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-     $email = $_POST['email'];
-     $password = $_POST['password'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $user_id = $_POST['user_id'];
 
-    $sql = "UPDATE `userss` SET 'firstname' = '.$firstname.' , 'lastname' = '.$lastname.', 'email' = '.$email.','password' = '.$password.' WHERE 'id' = '.$user_id.'";
+    $sql = "UPDATE `userss` SET `firstname` = '$firstname' , `lastname` = '$lastname', `email` = '$email',`password` = '$password' WHERE `id` = '$user_id' ";
     $result = $conn->query($sql);
     if($result == TRUE) {
-        echo "Record Updated Succesfully";
-
+        header('Location: view.php');
     }
     else {
         echo "Error:". $sql .  "<br>" . $conn->error;
         }
 }
-
     if(isset($_GET['id'])){
         $user_id = $_GET['id'];
-        $sql = "SELECT *FROM 'userss' WHERE 'id' = '$user_id'";
-        $result = $conn->query($sql);
-        if(num_rows($run)>0){
+        $sql = " SELECT * FROM userss WHERE id = '$user_id' ";
+        $result = mysqli_query($conn, $sql);
+        $num_rows = $result->num_rows;
+        if($num_rows > 0){
             while($row = $result->fetch_assoc()) {
                 $firstname = $row['firstname'];
                 $lastname = $row['lastname'];
                 $email = $row['email'];
                 $password = $row['password'];
                 $id = $row['id'];
-
-?>
-            }
+                
+?> 
             
            <!DOCTYPE html>
 <html>
@@ -59,17 +57,17 @@ if(isset($_POST['update'])){
 <fieldset>
 <legend>Personal information:</legend>
 First name: <br>
-<input type="text" name="firstname" value="<?php echo $_POST = 'firstname'; ?>">
-<input type="hidden" name="user_id" value="<?php echo $_POST = 'id'; ?>">
+<input type="text" name="firstname" value="<?php echo $firstname; ?>">
+<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 <br>
 Last name:<br>
-<input type="text" name="lastname" value="<?php echo $_POST = 'lastname'; ?>">
+<input type="text" name="lastname" value="<?php echo $lastname ?>">
 <br>
 Email:<br>
-<input type="email" name="email" value="<?php echo $_POST = 'email'; ?>">
+<input type="email" name="email" value="<?php echo $email; ?>">
 <br>
 Password: <br>
-<input type="password" name="password" value="<?php echo $_POST = 'password'; ?>">
+<input type="password" name="password" value="<?php echo  $password; ?>">
 <br>
 <input type="submit" value="Update" name="update">
         </fieldset>
@@ -83,6 +81,7 @@ Password: <br>
 
         // } else {
         //     header('Location: view.php');
-         }
-        } }
+        }
+    } 
+}
     

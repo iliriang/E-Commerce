@@ -64,7 +64,7 @@ $users = fetch_data(
 );
 $userss = fetch_data(
     $db,
-    "users",
+    "userss",
     ['id','firstname' , 'lastname','password']
 );
 

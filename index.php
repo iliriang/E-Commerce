@@ -17,6 +17,14 @@ include 'resources\dbResources.php';
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+    />
     <link rel="stylesheet" href="assets/style.css" />
     <title>OmiOnline - Ecommerce</title>
   </head>
@@ -354,6 +362,9 @@ include 'resources\dbResources.php';
       <p class="footer__copy">
 <?php  echo $ending_data[0]['text'] ?>      </p>
     </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
     <script src="assets/main.js"></script>
   </body>
 </html>

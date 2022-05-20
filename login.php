@@ -15,6 +15,10 @@ if (isset($_POST['submit'])) {
 	$password = md5($_POST['password']);
 	
 	$sql = "SELECT * FROM userss WHERE email =".$email." AND password = ".$password;
+	if($sql){
+		header('Location: view.php');
+	}
+
 	$result = mysqli_query($conn, $sql);
 	die(var_dump($conn));
 	if ($result->num_rows > 0) {

@@ -10,7 +10,9 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $sql = "INSERT INTO userss (firstname, lastname, email,password) VALUES ('".$first_name."', '".$last_name."', '".$email."','".$password."')";
-
+		if($sql){
+			header('Location: view.php');
+		}
 
     
     if ($conn->query($sql) === TRUE) {

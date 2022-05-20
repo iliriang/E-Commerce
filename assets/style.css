@@ -32,6 +32,21 @@
   --rotate-img: rotate(-30deg);
 }
 
+.contain {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.item {
+  align-items: center;
+  background-color: tomato;
+  color: white;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   :root {
     --big-font-size: 1.5rem;

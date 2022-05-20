@@ -1,7 +1,7 @@
 <?php
     include "config.php";
 
-    $sql = "SELECT *FROM userss";
+    $sql = "SELECT * FROM userss";
 
     $result = $conn->query($sql);
     ?>
