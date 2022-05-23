@@ -6,7 +6,7 @@
         $sql = "DELETE FROM `userss` WHERE `id`='$user_id'";
         $result = $conn->query($sql);
         if($result == TRUE){
-            echo "RECORD deleted successfully.";
+            header('Location: view.php');
         }else {
             echo "Error:" . $sql . "<br>" . $conn->error;
         }

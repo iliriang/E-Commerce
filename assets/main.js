@@ -130,11 +130,26 @@ function getProducts(){
   photo1.src = getPhoto1
 }
 
-$('.owl-carousel').owlCarousel({
-  loop: true,
-  margin: 30,
-  dots: true,
-  nav: true,
-  items: 2,
-})
 
+
+$('.owl-carousel').owlCarousel({
+  loop:true,
+  items:3,
+  margin:10,
+  nav:true,
+  autoplay:true,
+  autoplayTimeout:2000,
+  autoplayHoverPause:true,
+ /*  nav:true,
+ responsive:{
+      0:{
+          items:1
+      },
+      600:{
+          items:3
+      },
+      1000:{
+          items:5
+      }
+  }*/
+})

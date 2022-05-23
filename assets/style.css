@@ -890,4 +890,57 @@ img {
     text-align: center;
   }
 
+
   
+
+  #women .owl-carousel .owl-item img {
+    display: block;
+     width: 0;
+    }
+
+  #women .owl-carousel .owl-item .sneaker__img {
+      padding: 20px 5px;
+      width: 220px;
+       margin-top: 0; 
+      margin-bottom: 0;
+      transform: var(--rotate-img);
+      filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.2));
+  }
+
+  #women .owl-carousel .owl-item .sneaker__name {
+   margin-bottom: 0; 
+   color: #141414;
+}
+
+#women .owl-carousel .owl-item  .sneaker__preci {
+   margin-bottom: 0; 
+  padding: 5px;
+  color: #141414;
+}
+#women .owl-carousel .owl-nav button.owl-next{
+  position: absolute;
+  right: -29px;
+  top: 45%;
+  transform: translateY(-50%);
+  /* WIDTH: 20PX; */
+  background: rgba(138, 138, 138, 0.3);
+  width: 25px;
+  border-radius: 50%;
+  margin: 0;
+}
+
+#women .owl-carousel .owl-nav button.owl-prev{
+  position: absolute;
+  left: -29px;
+  top: 45%;
+  transform: translateY(-50%);
+  /* WIDTH: 20PX; */
+  background: rgba(138, 138, 138, 0.3);
+  width: 25px;
+  border-radius: 50%;
+  margin: 0;
+}
+
+#women .active::before{
+  display: none;
+}

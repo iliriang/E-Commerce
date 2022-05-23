@@ -25,6 +25,9 @@ include 'resources\dbResources.php';
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="assets/style.css" />
     <title>OmiOnline - Ecommerce</title>
   </head>
@@ -207,43 +210,49 @@ include 'resources\dbResources.php';
          
         </h2>
         <div class="women__container bd-grid">
-          <article class="sneaker">
-            <img src="assets/img/women1.png" alt="" class="sneaker__img" />
-            <span class="sneaker__name">
-              <!-- Nike Free TR -->
-              <?php echo $women_data[2]['product_title'] ?>
-            </span>
-            <span class="sneaker__preci">$ <?php  echo $women_data[2]['product_price'] ?>
 
-            </span>
-            <a href="" class="button-light" onclick='addToCart(event)'
-              >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
-            ></a>
-          </article>
-          <article class="sneaker">
-            <img src="assets/img/women2.png" alt="" class="sneaker__img" />
-            <span class="sneaker__name"><?php echo $women_data[2]['product_title'] ?></span>
-            <span class="sneaker__preci">$ <?php  echo $women_data[2]['product_price'] ?></span>
-            <a href="" class="button-light"  onclick='addToCart(event)'
-              >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
-            ></a>
-          </article>
-          <article class="sneaker">
-            <img src="assets/img/women3.png" alt="" class="sneaker__img" />
-            <span class="sneaker__name"><?php echo $women_data[1]['product_title'] ?></span>
-            <span class="sneaker__preci">$<?php  echo $women_data[1]['product_price'] ?></span>
-            <a href="" class="button-light"  onclick='addToCart(event)'
-              >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
-            ></a>
-          </article>
-          <article class="sneaker">
-            <img src="assets/img/women4.png" alt="" class="sneaker__img" />
-            <span class="sneaker__name"><?php echo $women_data[0]['product_title'] ?></span>
-            <span class="sneaker__preci">$<?php  echo $women_data[0]['product_price'] ?></span>
-            <a href="" class="button-light"  onclick='addToCart(event)'
-              >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
-            ></a>
-          </article>
+            <div class="owl-carousel owl-theme">
+
+              <article class="sneaker item">
+                <img src="assets/img/women1.png" alt="" class="sneaker__img" />
+                <span class="sneaker__name">
+                  <!-- Nike Free TR -->
+                  <?php echo $women_data[2]['product_title'] ?>
+                </span>
+                <span class="sneaker__preci">$ <?php  echo $women_data[2]['product_price'] ?>
+
+                </span>
+                <a href="" class="button-light" onclick='addToCart(event)'
+                  >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
+                ></a>
+              </article>
+              <article class="sneaker item">
+                <img src="assets/img/women2.png" alt="" class="sneaker__img" />
+                <span class="sneaker__name"><?php echo $women_data[2]['product_title'] ?></span>
+                <span class="sneaker__preci">$ <?php  echo $women_data[2]['product_price'] ?></span>
+                <a href="" class="button-light"  onclick='addToCart(event)'
+                  >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
+                ></a>
+              </article>
+              <article class="sneaker item">
+                <img src="assets/img/women3.png" alt="" class="sneaker__img" />
+                <span class="sneaker__name"><?php echo $women_data[1]['product_title'] ?></span>
+                <span class="sneaker__preci">$<?php  echo $women_data[1]['product_price'] ?></span>
+                <a href="" class="button-light"  onclick='addToCart(event)'
+                  >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
+                ></a>
+              </article>
+              <article class="sneaker item">
+                <img src="assets/img/women4.png" alt="" class="sneaker__img" />
+                <span class="sneaker__name"><?php echo $women_data[0]['product_title'] ?></span>
+                <span class="sneaker__preci">$<?php  echo $women_data[0]['product_price'] ?></span>
+                <a href="" class="button-light"  onclick='addToCart(event)'
+                  >Add to Cart <i class="bx bxs-right-arrow-alt button-icon"></i
+                ></a>
+              </article>
+
+            </div>    
+
         </div>
       </section>
       <!--===== OFFER =====-->
@@ -362,7 +371,9 @@ include 'resources\dbResources.php';
       <p class="footer__copy">
 <?php  echo $ending_data[0]['text'] ?>      </p>
     </footer>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
     <script src="assets/main.js"></script>
