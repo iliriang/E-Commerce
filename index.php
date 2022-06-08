@@ -29,6 +29,7 @@ include 'resources\dbResources.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="assets/style.css" />
+    
     <title>OmiOnline - Ecommerce</title>
   </head>
   <body>
@@ -332,7 +333,35 @@ include 'resources\dbResources.php';
           </form>
         </div>
       </section>
+
+       <!--contact-form-->
+
+  <div class="container_contactform bd-grid">
+      <h3>Contact Form</h3>
+    
+    <form action="/action_page.php">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name...">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+  
+      <label for="subject">Message</label>
+      <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+  
+      <input type="submit" value="Submit">
+    </form>
+  
+  </div>
     </main>
+
+ 
+
+
+
+
+
+
     <!--Footer-->
     <footer class="footer section">
       <div class="footer__container bd-grid">
