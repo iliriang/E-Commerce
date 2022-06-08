@@ -18,7 +18,7 @@ include "config.php";
     $result = $conn->query($sql);
     if($result == TRUE) {
         header('Location: view.php');
-    }
+     }
     else {
         echo "Error:". $sql .  "<br>" . $conn->error;
         }
@@ -79,9 +79,10 @@ Password: <br>
 
         <?php 
 
-        // } else {
-        //     header('Location: view.php');
+
         }
     } 
 }
     
+
+

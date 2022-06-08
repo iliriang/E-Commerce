@@ -153,3 +153,43 @@ $('.owl-carousel').owlCarousel({
       }
   }*/
 })
+
+function validateLogin() {
+  let email = document.forms["myForm"]["email"].value;
+  let password = document.forms["myForm"]["password"].value;
+
+  if (email == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+  if(password == ""){
+    alert("Password must be filled out");
+    return false;
+  }
+}
+
+// function validateRegister() {
+//   let email = document.forms["myForm"]["email"].value;
+//   let password = document.forms["myForm"]["password"].value;
+
+//   let firstname = document.forms["myForm"]["firstname"].value;
+//   let lastname = document.forms["myForm"]["lastname"].value;
+
+//   if (firstname == "") {
+//     alert("Name must be filled out");
+//     return false;
+//   }
+//   if(lastname == ""){
+//     alert("Lastname must be filled out");
+//     return false;
+//   }
+
+//   if (email == "") {
+//     alert("Email must be filled out");
+//     return false;
+//   }
+//   if(password == ""){
+//     alert("Password must be filled out");
+//     return false;
+//   }
+// }

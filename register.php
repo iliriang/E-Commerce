@@ -9,17 +9,35 @@
         $last_name = $_POST['lastname'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $sql = "INSERT INTO userss (firstname, lastname, email,password) VALUES ('".$first_name."', '".$last_name."', '".$email."','".$password."')";
-		if($sql){
+
+		if($first_name == '' || $last_name == '' || $email == '' || $password == ''){
+			echo "<script> alert('All fields are requared!');</script>";
+		} else {
+			$sql = "INSERT INTO userss (firstname, lastname, email,password) VALUES ('".$first_name."', '".$last_name."', '".$email."','".$password."')";
+			mysqli_query($conn, $sql);
 			header('Location: view.php');
 		}
 
+		// $result = mysqli_query($conn, $sql);
+		// $num_rows = $result->num_rows;
+		// if($num_rows > 0){
+		// 	echo 'werewrwerwer';
+		// }
+
+
+
+
+
+		// if($sql){
+		// 	header('Location: view.php');
+		// }
+
     
-    if ($conn->query($sql) === TRUE) {
+    // if ($conn->query($sql) === TRUE) {
     
-    } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    // } else {
+    // echo "Error: " . $sql . "<br>" . $conn->error;
+    // }
 
     }
 
@@ -53,20 +71,20 @@ $conn->close();
 <body>
 <?php include 'header.php';?>
 	<div class="container">
-		<form action="register.php" method="POST" class="login-email">
+		<form name="myForm" action="register.php" method="POST" class="login-email">
             <input type="hidden" name="data_submitted" value="true" >
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
-				<input type="text" placeholder="firstname" name="firstname" required>
+				<input type="text" placeholder="firstname" name="firstname" >
 			</div>
             	<div class="input-group">
-				<input type="text" placeholder="lastname" name="lastname"  required>
+				<input type="text" placeholder="lastname" name="lastname"  >
 			</div>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email"  required>
+				<input type="email" placeholder="Email" name="email"  >
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password"  required>
+				<input type="password" placeholder="Password" name="password" >
             </div>
               
 			<div class="input-group">

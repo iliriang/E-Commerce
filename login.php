@@ -6,27 +6,32 @@ session_start();
 
 error_reporting(0);
 
-if (isset($_SESSION['username'])) {
-    header("Location: view.php");
-}
+// if (isset($_SESSION['username'])) {
+//     header("Location: view.php");
+// }
 
 if (isset($_POST['submit'])) {
+	// die;
 	$email = $_POST['email'];
-	$password = md5($_POST['password']);
+	// $password = md5($_POST['password']);
+	$password = ($_POST['password']);
 	
-	$sql = "SELECT * FROM userss WHERE email =".$email." AND password = ".$password;
-	if($sql){
-		header('Location: view.php');
-	}
-
+	$sql = "SELECT * FROM userss WHERE email ='$email' AND password = '$password'";
+	// $sql = "SELECT * FROM userss WHERE email = 'admin@gmail.com' AND password = 'admin'";
 	$result = mysqli_query($conn, $sql);
-	die(var_dump($conn));
-	if ($result->num_rows > 0) {
+	$num_rows = $result->num_rows;
+	if($num_rows > 0){
 		$row = mysqli_fetch_assoc($result);
-		$_SESSION['username'] = $row['username'];
-		header("Location: view.php");
-	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+		if(($email == $row['email']) && ($password == $row['password'])){
+			$_SESSION['Emailadmin'] = $row['firstname'];
+
+			header("Location: view.php");
+		}else{
+			echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+		}
+		// $_SESSION['username'] = $row['username'];
+
+		// header("Location: view.php");
 	}
 }
 ?>
@@ -47,13 +52,13 @@ if (isset($_POST['submit'])) {
     <?php include 'header.php';?>
 
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form name="myForm" action="" method="POST" class="login-email" onsubmit="return validateLogin()">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" required>
+				<input type="email" placeholder="Email" name="email" >
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" required>
+				<input type="password" placeholder="Password" name="password" >
 			</div>
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
