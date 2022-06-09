@@ -8,8 +8,24 @@
     }
 
     $sql = "SELECT * FROM userss";
-
     $result = $conn->query($sql);
+
+    // $selectAdmin = "SELECT * FROM `userss` WHERE `isAdmin`= 1";
+
+
+
+
+    $selectAdmin = "SELECT * FROM `userss` where email='$useremail' ";
+	$result2 = mysqli_query($conn, $selectAdmin);
+
+    $row2 = mysqli_fetch_assoc($result2);
+       
+    $admin = 0;
+    if($row2['isAdmin']==1){
+        $admin = 1;
+    }
+    
+    // $isAdmin = $conn->query($selectAdmin);
     include 'resources\dbResources.php';
     ?>
 
@@ -27,7 +43,7 @@
         </head>
         <body>
             <div class="admin-header">
-                <h2>Welcome, <?= $useremail; ?></h2>
+                <h2>Welcome, <?= $useremail; ?> - <?= $admin ?></h2>
                 <a href=logout.php?logout>Logout</a>
             </div>
 
@@ -42,7 +58,9 @@
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Action</th>
+                            <?php if($admin == 1){ ?>
+                                <th>Action</th>
+                            <?php } ?>
                         </tr>
 </thread>
 <tbody>
@@ -58,9 +76,16 @@
 <td><?php echo $row['lastname']; ?> </td>
 <td><?php echo $row[ 'email']; ?> </td>
 <td><?php echo $row['password']; ?> </td>
-<td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">
-Edit</a>&nbsp; <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">
-Delete</a></td>
+
+<?php 
+    if($admin == 1){
+?>
+    <td>
+        <a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp; 
+        <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+    </td>
+<?php } ?>
+
     </tr>
 
     <?php }
@@ -73,8 +98,12 @@ Delete</a></td>
 
 
 <div class="container">
-    <button class="btn btn-primary my-5"><a href="productview.php" class="text-light">Add Product</a></button>
+    <?php if($admin == 1){ ?>
+        <button class="btn btn-primary my-5"><a href="productview.php" class="text-light">Add Product</a></button>
+    <?php } ?>
 </div>
+
+
 <h2>Products new Collection</h2>
     <table class="table">
         <head>
@@ -83,7 +112,10 @@ Delete</a></td>
                 <th>Title</th>
                 <th>Second Title</th>
                 <th>Product Price</th>
-                <th>Action</th>
+                <th>Img</th>
+                <?php if($admin == 1){ ?>
+                    <th>Action</th>
+                <?php } ?>
             </tr>
         </thread>
         <tbody>
@@ -96,9 +128,17 @@ Delete</a></td>
                     <td><?php  echo $data['second_title']; ?>
                     </td>
                     <td><?php  echo $data['product_price']; ?> </td>
-                    <td><a class="btn btn-info" href="updateProducts.php?updateid=<?php echo $data['id']; ?>">
-                    Edit</a>&nbsp; <a class="btn btn-danger" href="delete.php?id=<?php echo $data['id']; ?>">
-                    Delete</a></td>
+                    <td><img src="assets/img/<?php  echo $data['images']; ?>" style="width:50px ; height:50px"></td>
+                    
+
+                            <?php if($admin==1){ ?>
+                                <td>
+                            <a class="btn btn-info" href="updateProducts.php?updateid=<?php echo $data['id']; ?>">
+                        Edit</a>&nbsp; 
+                        <a class="btn btn-danger" href="delete.php?id=<?php echo $data['id']; ?>">
+                        Delete</a></td>
+                        <?php } ?>
+                    
                 </tr>      
             <?php } ?>
         </tbody>

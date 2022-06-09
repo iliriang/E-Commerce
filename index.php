@@ -269,44 +269,39 @@ include 'resources\dbResources.php';
       </section>
       <!--===== NEW COLLECTION =====-->
       <section class="new section" id="new">
-        <h2 class="section-title"><?php  echo $new_collection_data[0]['title'] ?></h2>
+        <h2 class="section-title"><?php  echo $new_collection_data[0]['title'] ?> aswdasd</h2>
         <div class="new__container bd-grid">
-          <div class="new__mens">
-            <img src="assets/img/new1.png" alt="" class="new__mens-img" />
-            <h3 class="new__title"><?php  echo $new_collection_data[0]['second_title'] ?></h3>
-            <span class="new__preci"><?php  echo $new_collection_data[0]['product_price'] ?></span>
-            <a href="#" class="button-light"
-              >View Collection <i class="bx bxs-right-arrow-alt button-icon"></i
-            ></a>
-          </div>
+                    <div class="new__mens">
+                      <img src="assets/img/new1.png" alt="" class="new__mens-img" />
+                      <h3 class="new__title"><?php  echo $new_collection_data[0]['second_title'] ?></h3>
+                      <span class="new__preci"><?php  echo $new_collection_data[0]['product_price'] ?></span>
+                      <a href="#" class="button-light"
+                        >View Collection <i class="bx bxs-right-arrow-alt button-icon"></i
+                      ></a>
+                    </div>
+
+
+
           <div class="new__sneaker">
+
+  <?php
+            foreach($new_collection_data as $data){ ?>
             <div class="new__sneaker-card">
-              <img src="assets/img/new2.png" alt="" class="new__sneaker-img" />
-              <div class="new__sneaker-overlay">
-                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
-              </div>
-            </div>
-            <div class="new__sneaker-card">
-              <img src="assets/img/new3.png" alt="" class="new__sneaker-img" />
+              <img src="assets/img/<?php  echo $data['images']; ?>" alt="" class="new__sneaker-img" />
               <div class="new__sneaker-overlay">
                 <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
               </div>
             </div>
 
-            <div class="new__sneaker-card">
-              <img src="assets/img/new4.png" alt="" class="new__sneaker-img" />
-              <div class="new__sneaker-overlay">
-                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
-              </div>
-            </div>
+          <?php } ?>
+  
+            
 
-            <div class="new__sneaker-card">
-              <img src="assets/img/new5.png" alt="" class="new__sneaker-img" />
-              <div class="new__sneaker-overlay">
-                <a href="#" class="button"  onclick='addToCart(event)'>Add to Cart</a>
-              </div>
-            </div>
+
+
           </div>
+
+
         </div>
       </section>
 
@@ -314,7 +309,7 @@ include 'resources\dbResources.php';
       <section class="newsletter section">
         <div class="newsletter__container bd-grid">
           <div>
-            <h3 class="newsletter__title">
+            <h3 class="newsletter__title">  
               <?php  echo $subscribe_data[0]['title'] ?> <br />
               <?php  echo $subscribe_data[0]['second_title'] ?> 
             </h3>
@@ -339,17 +334,17 @@ include 'resources\dbResources.php';
   <div class="container_contactform bd-grid">
       <h3>Contact Form</h3>
     
-    <form action="/action_page.php">
+    <form method="post" action="contact_form.php">
       <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name...">
+      <input type="text" id="fname"  placeholder="Your name..." required name="firstName">
   
       <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+      <input type="text" id="lname" placeholder="Your last name..." required name="lastName">
   
       <label for="subject">Message</label>
-      <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+      <textarea id="subject"  placeholder="Write something..." required style="height:200px" name="message"></textarea>
   
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" name="submit_form">
     </form>
   
   </div>

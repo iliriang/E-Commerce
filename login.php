@@ -9,6 +9,10 @@ error_reporting(0);
 // if (isset($_SESSION['username'])) {
 //     header("Location: view.php");
 // }
+if(isset($_SESSION['Emailadmin'])){
+	header('location: view.php');
+}
+
 
 if (isset($_POST['submit'])) {
 	// die;
@@ -23,7 +27,9 @@ if (isset($_POST['submit'])) {
 	if($num_rows > 0){
 		$row = mysqli_fetch_assoc($result);
 		if(($email == $row['email']) && ($password == $row['password'])){
-			$_SESSION['Emailadmin'] = $row['firstname'];
+			$_SESSION['Emailadmin'] = $row['email'];
+			$_SESSION['isAdmin'] = $row['isAdmin'];
+
 
 			header("Location: view.php");
 		}else{

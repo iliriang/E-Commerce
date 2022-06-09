@@ -35,7 +35,7 @@ $footer_data = fetch_data(
 $new_collection_data = fetch_data(
     $db,
     "new_collection_data",
-    ['id','title' , 'second_title' , 'product_price	']
+    ['id','title' , 'second_title' , 'product_price	','images']
 );
 $product_home_data = fetch_data(
     $db,
